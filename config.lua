@@ -99,7 +99,7 @@ Config.Teleports = {
             drawText = '[E] Take Elevator Up'
         },
         [2] = {
-            coords = vector4(-768.68, 336.78, 243.38, 269.03),
+            coords = vector4(-768.68, 336.78, 243.38, 90),
             ["AllowVehicle"] = false,
             drawText = '[E] Take Elevator Down'
         },
@@ -112,7 +112,7 @@ Config.Teleports = {
             drawText = '[E] Take Elevator Up'
         },
         [2] = {
-            coords = vector4(-1388.64, -481.65, 78.2, 182.61),
+            coords = vector4(-1388.64, -481.65, 78.2, 9.43),
             ["AllowVehicle"] = true,
             drawText = '[E] Take Elevator Down'
         },
