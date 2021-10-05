@@ -39,14 +39,14 @@ Config.BlacklistedVehs = {
     [`LUXOR`] = true,
     [`LUXOR2`] = true,
     [`JET`] = true,
-    [`LAZER`] = true,
+    [`LAZER`] = false,
     [`BUZZARD`] = true,
     [`BUZZARD2`] = true,
     [`ANNIHILATOR`] = true,
     [`SAVAGE`] = true,
     [`TITAN`] = true,
-    [`RHINO`] = true,
-    [`FIRETRUK`] = true,
+    [`RHINO`] = false,
+    [`FIRETRUK`] = false,
     [`MULE`] = true,
     [`MAVERICK`] = true,
     [`BLIMP`] = true,
@@ -89,6 +89,32 @@ Config.Teleports = {
             coords = vector4(1088.81, -3187.57, -38.99, 181.7),
             ["AllowVehicle"] = false,
             drawText = '[E] Leave'
+        },
+    },
+    --Rooftop Apartment
+    [3] = {
+        [1] = {
+            coords = vector4(-773.74, 305.59, 85.7, 354.65),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Up'
+        },
+        [2] = {
+            coords = vector4(-768.68, 336.78, 243.38, 269.03),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Down'
+        },
+    },
+    --Werkstatt
+    [4] = {
+        [1] = {
+            coords = vector4(-1362.02, -472.02, 31.6, 273.19),
+            ["AllowVehicle"] = true,
+            drawText = '[E] Take Elevator Up'
+        },
+        [2] = {
+            coords = vector4(-1388.64, -481.65, 78.2, 182.61),
+            ["AllowVehicle"] = true,
+            drawText = '[E] Take Elevator Down'
         },
     },
 }
