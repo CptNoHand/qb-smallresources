@@ -94,7 +94,7 @@ Config.Teleports = {
     --Rooftop Apartment
     [3] = {
         [1] = {
-            coords = vector4(-773.74, 305.59, 85.7, 354.65),
+            coords = vector4(-773.74, 305.59, 85.7, 180.19),
             ["AllowVehicle"] = false,
             drawText = '[E] Take Elevator Up'
         },
@@ -107,7 +107,7 @@ Config.Teleports = {
     --Werkstatt
     [4] = {
         [1] = {
-            coords = vector4(-1362.02, -472.02, 31.6, 273.19),
+            coords = vector4(-1362.02, -472.02, 31.6, 100.0),
             ["AllowVehicle"] = true,
             drawText = '[E] Take Elevator Up'
         },
