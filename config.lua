@@ -58,15 +58,15 @@ Config.BlacklistedVehs = {
     [`BUZZARD`] = true,
     [`BUZZARD2`] = true,
     [`ANNIHILATOR`] = true,
-    [`SAVAGE`] = true,
+    [`SAVAGE`] = false,
     [`TITAN`] = true,
     [`RHINO`] = false,
     [`FIRETRUK`] = false,
-    [`MULE`] = true,
+    [`MULE`] = false,
     [`MAVERICK`] = true,
-    [`BLIMP`] = true,
+    [`BLIMP`] = false,
     [`AIRTUG`] = true,
-    [`CAMPER`] = true,    
+    [`CAMPER`] = false,    
 }
 
 Config.BlacklistedPeds = {
