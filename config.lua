@@ -56,7 +56,6 @@ Config.BlacklistedVehs = {
     [`JET`] = true,
     [`LAZER`] = false,
     [`BUZZARD`] = true,
-    [`BUZZARD2`] = true,
     [`ANNIHILATOR`] = true,
     [`SAVAGE`] = false,
     [`TITAN`] = true,
