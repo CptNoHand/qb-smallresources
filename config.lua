@@ -131,32 +131,6 @@ Config.Teleports = {
             drawText = '[E] Take Elevator Down'
         },
     },
-    --PDM 1
-    [5] = {
-        [1] = {
-            coords = vector4(-29.01, -1094.14, 26.44, 70.00),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
-        },
-        [2] = {
-            coords = vector4(-24.48, -1106.59, 35.92, 70.00),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
-        },
-    },
-    --PDM 2
-    [6] = {
-        [1] = {
-            coords = vector4(-27.05, -1089.61, 26.44, 70.00),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
-        },
-        [2] = {
-            coords = vector4(-22.92, -1101.88, 35.92, 70.00),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
-        },
-    },
 }
 
 Config.Locations = { -- carwash
