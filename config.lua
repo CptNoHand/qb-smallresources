@@ -131,6 +131,19 @@ Config.Teleports = {
             drawText = '[E] Take Elevator Down'
         },
     },
+    --Rooftop Villa
+    [5] = {
+        [1] = {
+            coords = vector4(-305.02, -720.97, 28.03, 159.98),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Up'
+        },
+        [2] = {
+            coords = vector4(-288.16, -722.55, 125.47, 247.6),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Down'
+        },
+    },
 }
 
 Config.Locations = { -- carwash
