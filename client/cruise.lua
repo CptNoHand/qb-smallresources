@@ -31,8 +31,8 @@ local function GetVehicle() return GetVehiclePedIsIn(Player, false) end
 local function IsInVehicle() return GetPedInVehicleSeat(GetVehicle(), -1) end
 local function IsDriver() return GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId(), false), -1) == PlayerPedId() end
 local function GetVehicleSpeed() return GetEntitySpeed(GetVehicle()) end
---local function TransformToKm(speed) return math.floor(speed * 3.6 + 0.5) end -- Uncomment me for km/h
-local function TransformToMph(speed) return math.floor(speed * 2.2369 + 0.5) end -- Comment me for mp/h
+local function TransformToKm(speed) return math.floor(speed * 3.6 + 0.5) end -- Uncomment me for km/h
+--local function TransformToMph(speed) return math.floor(speed * 2.2369 + 0.5) end -- Comment me for mp/h
 
 local function TriggerCruiseControl()
     if CruisedSpeed == 0 and IsDriving() then
@@ -62,7 +62,7 @@ local function TriggerCruiseControl()
                     if IsControlJustPressed(1, 246) then
                         TriggerEvent('seatbelt:client:ToggleCruise')
                         CruisedSpeed = GetVehicleSpeed() -- Comment me for mp/h
-                        --CruisedSpeedKm = TransformToKm(CruisedSpeed) -- Uncomment me for km/h
+                        CruisedSpeedKm = TransformToKm(CruisedSpeed) -- Uncomment me for km/h
                     end
                     if IsControlJustPressed(2, 72) then
                         CruisedSpeed = 0

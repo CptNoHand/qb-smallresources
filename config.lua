@@ -2,7 +2,7 @@ Config = {}
 Config.MaxWidth = 5.0
 Config.MaxHeight = 5.0
 Config.MaxLength = 5.0
-Config.DamageNeeded = 100.0
+Config.DamageNeeded = 60.0
 Config.EnableProne = true
 Config.JointEffectTime = 60
 Config.RemoveWeaponDrops = true
@@ -14,26 +14,26 @@ ConsumeablesEat = {
     ["tosti"] = math.random(40, 50),
     ["twerks_candy"] = math.random(35, 54),
     ["snikkel_candy"] = math.random(40, 50),
-}
-
-ConsumeablesDrink = {
-    ["water_bottle"] = math.random(35, 54),
-    ["kurkakola"] = math.random(35, 54),
-    ["coffee"] = math.random(40, 50),
-}
-
-ConsumeablesAlcohol = {
-    ["whiskey"] = math.random(20, 30),
-    ["beer"] = math.random(30, 40),
-    ["vodka"] = math.random(20, 40),
     ["burger-bleeder"] = math.random(35, 54),
     ["burger-moneyshot"] = math.random(35, 54),
     ["burger-torpedo"] = math.random(35, 54),
     ["burger-heartstopper"] = math.random(35, 54),
     ["burger-meatfree"] = math.random(35, 54),
     ["burger-fries"] = math.random(35, 54),
+}
+
+ConsumeablesDrink = {
+    ["water_bottle"] = math.random(35, 54),
+    ["kurkakola"] = math.random(35, 54),
+    ["coffee"] = math.random(40, 50),
     ["burger-softdrink"] = math.random(40, 50),
     ["burger-mshake"] = math.random(40, 50),
+}
+
+ConsumeablesAlcohol = {
+    ["whiskey"] = math.random(20, 30),
+    ["beer"] = math.random(30, 40),
+    ["vodka"] = math.random(20, 40),
 }
 
 Config.BlacklistedScenarios = {
