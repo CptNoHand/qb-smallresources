@@ -41,9 +41,9 @@ local function TriggerCruiseControl()
             --CruisedSpeedMph = TransformToMph(CruisedSpeed) -- Comment me for mp/h
             CruisedSpeedKm = TransformToKm(CruisedSpeed) -- Uncomment me for km/h
             TriggerEvent('seatbelt:client:ToggleCruise')
-            --QBCore.Functions.Notify("Cruise Activated: " .. CruisedSpeedMph .." MP/H") -- Comment me for mp/h
+            -- QBCore.Functions.Notify("Cruise Activated: " .. CruisedSpeedMph .." MP/H") -- Comment me for mp/h
             QBCore.Functions.Notify("Cruise Activated: " .. CruisedSpeedKm ..  " km/h") -- Uncomment me for km/h
-            Citizen.CreateThread(function()
+            CreateThread(function()
                 while CruisedSpeed > 0 and IsInVehicle() == Player do
                     Wait(0)
                     if not IsTurningOrHandBraking() and GetVehicleSpeed() <
