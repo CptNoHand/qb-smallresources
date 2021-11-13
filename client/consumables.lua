@@ -182,6 +182,7 @@ RegisterNetEvent('consumables:client:DrinkAlcohol', function(itemName)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
         TriggerServerEvent("QBCore:Server:RemoveItem", itemName, 1)
         TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + ConsumeablesAlcohol[itemName])
+        DrunkEffect()
         alcoholCount = alcoholCount + 1
         if alcoholCount > 1 and alcoholCount < 4 then
             TriggerEvent("evidence:client:SetStatus", "alcohol", 200)
@@ -483,4 +484,47 @@ function AlienEffect()
     StopScreenEffect("DrugsMichaelAliensFightIn")
     StopScreenEffect("DrugsMichaelAliensFight")
     StopScreenEffect("DrugsMichaelAliensFightOut")
+end
+
+function DrunkEffect()
+
+    local playerPed = PlayerPedId()
+
+    Citizen.Wait(200)
+    RequestAnimSet("move_m@drunk@slightlydrunk")
+
+    while not HasAnimSetLoaded("move_m@drunk@slightlydrunk") do
+        Citizen.Wait(0)
+    end
+
+    SetPedMovementClipset(playerPed, "move_m@drunk@slightlydrunk", true)
+
+    SetTimecycleModifier("spectator5")
+    SetPedMotionBlur(playerPed, true)
+    SetPedIsDrunk(playerPed, true)
+
+    Citizen.Wait(60000) -- Time to wait before setting ped to sober
+
+    Reality()
+end
+
+function Reality()
+
+    Citizen.CreateThread(function()
+
+      local playerPed = GetPlayerPed(-1)
+
+      DoScreenFadeOut(800)
+      Wait(1000)
+
+      ClearTimecycleModifier()
+      ResetScenarioTypesEnabled()
+      ResetPedMovementClipset(playerPed, 0)
+      SetPedIsDrunk(playerPed, false)
+      SetPedMotionBlur(playerPed, false)
+
+      DoScreenFadeIn(800)
+
+    end)
+
 end
