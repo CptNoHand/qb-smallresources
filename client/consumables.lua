@@ -24,7 +24,7 @@ RegisterNetEvent('consumables:client:UseJoint', function()
         if IsPedInAnyVehicle(PlayerPedId(), false) then
             TriggerEvent('animations:client:EmoteCommandStart', {"smoke3"})
         else
-            TriggerEvent('animations:client:EmoteCommandStart', {"smokeweed"})
+            TriggerEvent('animations:client:EmoteCommandStart', {"smoke2"})
         end
         TriggerEvent("evidence:client:SetStatus", "weedsmell", 300)
         TriggerEvent('animations:client:SmokeWeed')
@@ -171,7 +171,7 @@ RegisterNetEvent('consumables:client:ResetArmor', function()
 end)
 
 RegisterNetEvent('consumables:client:DrinkAlcohol', function(itemName)
-    TriggerEvent('animations:client:EmoteCommandStart', {"drink"})
+    TriggerEvent('animations:client:EmoteCommandStart', {"beer"})
     QBCore.Functions.Progressbar("snort_coke", "Drinking liquor..", math.random(3000, 6000), false, true, {
         disableMovement = false,
         disableCarMovement = false,
