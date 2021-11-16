@@ -252,6 +252,18 @@ QBCore.Functions.CreateUseableItem("burger-fries", function(source, item)
         TriggerClientEvent("consumables:client:Eat", source, item.name)
     end
 end)
+----------- / Lockpicking
+
+QBCore.Functions.CreateUseableItem("lockpick", function(source, item)
+    local Player = QBCore.Functions.GetPlayer(source)
+    TriggerClientEvent("lockpicks:UseLockpick", source, false)
+end)
+
+QBCore.Functions.CreateUseableItem("advancedlockpick", function(source, item)
+    local Player = QBCore.Functions.GetPlayer(source)
+    TriggerClientEvent("lockpicks:UseLockpick", source, true)
+end)
+
 ----------- / Unused
 
 -- QBCore.Functions.CreateUseableItem("smoketrailred", function(source, item)
