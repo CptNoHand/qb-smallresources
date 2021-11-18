@@ -20,6 +20,42 @@ QBCore.Functions.CreateUseableItem("whiskey", function(source, item)
     TriggerClientEvent("consumables:client:DrinkAlcohol", src, item.name)
 end)
 
+QBCore.Functions.CreateUseableItem("gin-tonic", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    TriggerClientEvent("consumables:client:DrinkAlcohol", src, item.name)
+end)
+
+QBCore.Functions.CreateUseableItem("new-western-dry", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    TriggerClientEvent("consumables:client:DrinkAlcohol", src, item.name)
+end)
+
+QBCore.Functions.CreateUseableItem("old-tom", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    TriggerClientEvent("consumables:client:DrinkAlcohol", src, item.name)
+end)
+
+QBCore.Functions.CreateUseableItem("cedar-ridge", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    TriggerClientEvent("consumables:client:DrinkAlcohol", src, item.name)
+end)
+
+QBCore.Functions.CreateUseableItem("corn", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    TriggerClientEvent("consumables:client:DrinkAlcohol", src, item.name)
+end)
+
+QBCore.Functions.CreateUseableItem("green-island", function(source, item)
+    local src = source
+    local Player = QBCore.Functions.GetPlayer(src)
+    TriggerClientEvent("consumables:client:DrinkAlcohol", src, item.name)
+end)
+
 ----------- / Eat
 
 QBCore.Functions.CreateUseableItem("sandwich", function(source, item)
@@ -262,51 +298,6 @@ end)
 QBCore.Functions.CreateUseableItem("advancedlockpick", function(source, item)
     local Player = QBCore.Functions.GetPlayer(source)
     TriggerClientEvent("lockpicks:UseLockpick", source, true)
-end)
-
---Rooks Bar
-
---Drinks
-QBCore.Functions.CreateUseableItem("gin-tonic", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:DrinkAlcohol", source, item.name)
-    end
-end)
-
-QBCore.Functions.CreateUseableItem("new-western-dry", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:DrinkAlcohol", source, item.name)
-    end
-end)
-
-QBCore.Functions.CreateUseableItem("old-tom", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:DrinkAlcohol", source, item.name)
-    end
-end)
-
-QBCore.Functions.CreateUseableItem("cedar-ridge", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:DrinkAlcohol", source, item.name)
-    end
-end)
-
-QBCore.Functions.CreateUseableItem("corn", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:DrinkAlcohol", source, item.name)
-    end
-end)
-
-QBCore.Functions.CreateUseableItem("green-island", function(source, item)
-    local Player = QBCore.Functions.GetPlayer(source)
-	if Player.Functions.RemoveItem(item.name, 1, item.slot) then
-        TriggerClientEvent("consumables:client:DrinkAlcohol", source, item.name)
-    end
 end)
 
 ----------- / Unused
