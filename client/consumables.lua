@@ -235,6 +235,7 @@ RegisterNetEvent('consumables:client:Crackbaggy', function()
         TriggerServerEvent("QBCore:Server:RemoveItem", "crack_baggy", 1)
         TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["crack_baggy"], "remove")
         TriggerEvent("evidence:client:SetStatus", "widepupils", 300)
+        exports["acidtrip"]:DoAcid(120000)
         CrackBaggyEffect()
     end, function() -- Cancel
         StopAnimTask(ped, "switch@trevor@trev_smoking_meth", "trev_smoking_meth_loop", 1.0)
