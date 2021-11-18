@@ -33,7 +33,12 @@ ConsumeablesDrink = {
 ConsumeablesAlcohol = {
     ["whiskey"] = math.random(20, 30),
     ["beer"] = math.random(30, 40),
-    ["vodka"] = math.random(20, 40),
+    ["gin-tonic"] = math.random(20, 40),
+    ["new-western-dry"] = math.random(20, 40),
+    ["old-tom"] = math.random(20, 40),
+    ["cedar-ridge"] = math.random(20, 40),
+    ["corn"] = math.random(20, 40),
+    ["green-island"] = math.random(20, 40),
 }
 
 Config.BlacklistedScenarios = {
