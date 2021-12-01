@@ -298,6 +298,37 @@ RegisterNetEvent('consumables:client:Crackbaggy', function()
     end)
 end)
 
+-- Tequilala
+-- Drinking a Cocktail
+
+RegisterNetEvent("consumables:client:DrinkCock")
+AddEventHandler("consumables:client:DrinkCock", function(itemName)
+    Citizen.Wait(1500)
+    TriggerEvent('animations:client:EmoteCommandStart', {"drink"})
+    QBCore.Functions.Progressbar("snort_coke", "Drinking cocktail..", math.random(3000, 6000), false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+        disableMouse = false,
+        disableCombat = true,
+    }, {}, {}, {}, function() -- Done
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items[itemName], "remove")
+        TriggerServerEvent("QBCore:Server:SetMetaData", "thirst", QBCore.Functions.GetPlayerData().metadata["thirst"] + Consumeables[itemName])
+        alcoholCount = alcoholCount + 2
+        if alcoholCount > 1 and alcoholCount < 4 then
+            TriggerEvent("evidence:client:SetStatus", "alcohol", 600)
+        elseif alcoholCount >= 4 then
+            TriggerEvent("evidence:client:SetStatus", "heavyalcohol", 600)
+            Effectdrunk()
+            -- print("This should start the drunk effect")
+        end
+        
+    end, function() -- Cancel
+        TriggerEvent('animations:client:EmoteCommandStart', {"c"})
+        QBCore.Functions.Notify("Cancelled..", "error")
+    end)
+end)
+
 RegisterNetEvent('consumables:client:EcstasyBaggy', function()
     QBCore.Functions.Progressbar("use_ecstasy", "Pops Pills", 3000, false, true, {
         disableMovement = false,

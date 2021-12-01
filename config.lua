@@ -21,6 +21,7 @@ ConsumeablesEat = {
     ["burger-heartstopper"] = math.random(35, 54),
     ["burger-meatfree"] = math.random(35, 54),
     ["burger-fries"] = math.random(35, 54),
+    ["crisps"] = math.random(10, 20),
 }
 
 ConsumeablesDrink = {
@@ -41,6 +42,11 @@ ConsumeablesAlcohol = {
     ["cedar-ridge"] = math.random(20, 40),
     ["corn"] = math.random(20, 40),
     ["green-island"] = math.random(20, 40),
+    ["dusche-beer"] = math.random(5, 15),
+    ["stronzo-beer"] = math.random(5, 15),
+    ["am-beer"] = math.random(5, 15),
+    ["logger-beer"] = math.random(5, 15),
+    ["sunny-cocktail"] = math.random(5, 15),
 }
 
 Config.BlacklistedScenarios = {
