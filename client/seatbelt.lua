@@ -165,8 +165,8 @@ CreateThread(function()
                                 end
                             end
                         elseif (seatbeltOn or harnessOn) and not IsThisModelABike(currentVehicle) then
-                            if lastFrameVehiclespeed > 150 then
-                                if math.random(math.ceil(lastFrameVehiclespeed)) > 150 then
+                            if lastFrameVehiclespeed > 450 then
+                                if math.random(math.ceil(lastFrameVehiclespeed)) > 450 then
                                     if not harnessOn then
                                         EjectFromVehicle()
                                     else
