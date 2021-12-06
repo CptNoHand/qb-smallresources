@@ -1,6 +1,6 @@
 local density = 1.0
-local parkeddensity = 0.3
-local cardensity = 0.4
+local parkeddensity = 0.8
+local cardensity = 0.2
 CreateThread(function()
 	while true do
 		SetParkedVehicleDensityMultiplierThisFrame(parkeddensity)
