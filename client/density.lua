@@ -1,5 +1,5 @@
 local density = 1.0
-local parkeddensity = 0.8
+local parkeddensity = 0.2
 local cardensity = 0.2
 CreateThread(function()
 	while true do
