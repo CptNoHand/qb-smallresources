@@ -70,6 +70,7 @@ CreateThread(function()
         else
             stage = 0
             Wait(1000)
+            TriggerServerEvent('qb-walkstyles:server:walkstyles', 'get')
         end
     end
 end)
