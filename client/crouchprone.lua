@@ -102,5 +102,6 @@ function RequestWalking(set)
     RequestAnimSet(set)
     while not HasAnimSetLoaded(set) do
         Wait(1)
+        TriggerServerEvent('qb-walkstyles:server:walkstyles', 'get')
     end
 end
