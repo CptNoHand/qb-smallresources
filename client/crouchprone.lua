@@ -70,7 +70,6 @@ CreateThread(function()
         else
             stage = 0
             Wait(1000)
-            TriggerServerEvent('qb-walkstyles:server:walkstyles', 'get')
         end
     end
 end)
@@ -96,12 +95,12 @@ function ResetAnimSet()
         SetPedMovementClipset(ped, walkSet, 1)
         RemoveAnimSet(walkSet)
     end
+    TriggerServerEvent('qb-walkstyles:server:walkstyles', 'get')
 end
 
 function RequestWalking(set)
     RequestAnimSet(set)
     while not HasAnimSetLoaded(set) do
         Wait(1)
-        TriggerServerEvent('qb-walkstyles:server:walkstyles', 'get')
     end
 end
