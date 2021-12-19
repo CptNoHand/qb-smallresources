@@ -173,6 +173,32 @@ Config.Teleports = {
             drawText = '[E] Take Elevator Down'
         },
     },
+    --Medics Garage 1
+    [6] = {
+        [1] = {
+            coords = vector4(342.26, -585.53, 28.8, 73.93),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Up'
+        },
+        [2] = {
+            coords = vector4(332.37, -595.65, 43.28, 70.15),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Down'
+        },
+    },
+    --Medics Garage 2
+    [7] = {
+        [1] = {
+            coords = vector4(343.61, -581.75, 28.8, 65.7),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Up'
+        },
+        [2] = {
+            coords = vector4(330.41, -601.1, 43.28, 71.57),
+            ["AllowVehicle"] = false,
+            drawText = '[E] Take Elevator Down'
+        },
+    },
 }
 
 Config.CarWash = { -- carwash
