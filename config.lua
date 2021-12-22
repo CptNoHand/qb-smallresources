@@ -32,6 +32,20 @@ ConsumeablesEat = {
     ["cupcake"] = math.random(7, 18), -- 8
     ["gum"] = math.random(3, 8), -- 9
     ["ramen"] = math.random(3, 15), -- 10
+    ["bmochi"] = math.random(30, 40),
+    ["pmochi"] = math.random(40, 50),
+    ["gmochi"] = math.random(40, 50),
+    ["omochi"] = math.random(40, 50),
+    ["bento"] = math.random(40, 50),
+    ["riceball"] = math.random(40, 50),
+    ["miso"] = math.random(40, 50),
+    ["cake"] = math.random(40, 50),
+    ["nekocookie"] = math.random(40, 50),
+    ["nekodonut"] = math.random(40, 50),
+    ["rice"] = math.random(30, 40),
+    ["blueberry"] = math.random(30, 40),
+    ["strawberry"] = math.random(30, 40),
+    ["orange"] = math.random(30, 40),
 }
 
 ConsumeablesDrink = {
@@ -45,7 +59,13 @@ ConsumeablesDrink = {
     ["mtndew"] = math.random(35, 54), -- 3
     ["lemonade"] = math.random(35, 54), -- 4
     ["icedtea"] = math.random(35, 54), -- 5
-    ["milk"] = math.random(35, 54),
+    ["nekolatte"] = math.random(20, 40),
+    ["bobatea"] = math.random(20, 40),
+    ["bbobatea"] = math.random(20, 40),
+    ["gbobatea"] = math.random(20, 40),
+    ["obobatea"] = math.random(20, 40),
+    ["pbobatea"] = math.random(20, 40),
+    ["milk"] = math.random(20, 40),
 }
 
 ConsumeablesAlcohol = {
@@ -63,6 +83,7 @@ ConsumeablesAlcohol = {
     ["am-beer"] = math.random(5, 15),
     ["logger-beer"] = math.random(5, 15),
     ["sunny-cocktail"] = math.random(5, 15),
+    ["sake"] = math.random(20, 40),
 }
 
 Config.BlacklistedScenarios = {
