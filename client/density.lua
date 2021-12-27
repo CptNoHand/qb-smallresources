@@ -1,8 +1,8 @@
 local density = {
     ['parked'] = 0.1,
     ['vehicle'] = 0.1,
-    ['multiplier'] = 1.0,
-    ['peds'] = 0.8,
+    ['multiplier'] = 0.8,
+    ['peds'] = 1.0,
     ['scenario'] = 1.0,
 }
 
