@@ -154,6 +154,9 @@ Config.BlacklistedPeds = {
     [`s_f_y_sheriff_01`] = true,
     [`s_f_y_cop_01`] = true,
     [`s_m_y_hwaycop_01`] = true,
+    [`ig_barry`] = true,
+    [`ig_bestman`] = true,
+    [`ig_hunter`] = true,
 }
 
 Config.Teleports = {
