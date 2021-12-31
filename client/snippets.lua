@@ -1,35 +1,42 @@
-RegisterCommand('ajthrow', function()
-    local animDict = "switch@trevor@bridge"
-    local ped = PlayerPedId()
-    local throw = "mp_m_bogdangoon"
-    local x,y,z = table.unpack(GetEntityCoords(ped))
+RegisterCommand('slide', function()
 
-    coords = GetEntityCoords(ped)
+    local entity = PlayerPedId()
+    local forceType = forceTypes.MaxForceRot2
+     -- sends the entity straight up into the sky:
+    local direction = vector3(50.0, 0.0, 0.0)
+    local rotation = vector3(0.0, 0.0, 0.0)
+    local boneIndex = 0
+    local isDirectionRel = false
+    local ignoreUpVec = true
+    local isForceRel = true
+    local p12 = false
+    local p13 = true
 
-    RequestAnimDict(animDict)
-    RequestModel(throw)
-
-    while not HasAnimDictLoaded(animDict) or not HasModelLoaded(throw) do
-        Citizen.Wait(100)
+    RequestAnimDict('anim@arena@celeb@flat@solo@no_props@')
+    while not HasAnimDictLoaded('anim@arena@celeb@flat@solo@no_props@') do
+        Wait(100)
     end
 
-    local targetPosition, targetRotation = vec3(coords), vec3(0.0, 0.0, 20.0)
+    TaskPlayAnim(entity, 'anim@arena@celeb@flat@solo@no_props@', 'slide_a_player_a', 1.8, 1.8, 2000, 0)
 
-    local animPos, targetHeading = GetAnimInitialOffsetPosition(animDict, "throw_exit_trevor", targetPosition, targetRotation, 0, 2), 52.8159
-    TaskGoStraightToCoord(ped, animPos, 0.025, 5000, targetHeading, 0.05)
+    -- local netScene5 = NetworkCreateSynchronisedScene(GetEntityCoords(entity), GetEntityRotation(entity), 2, true, false, 1065353216, 0, 1.0)
+    -- NetworkAddPedToSynchronisedScene(entity, netScene5, 'anim@arena@celeb@flat@solo@no_props@', "slide_a_player_a", 0, 0, 5000, 16, 1148846080, 0)
+    -- NetworkStartSynchronisedScene(netScene5)
 
-    Citizen.Wait(1000)
+    Wait(500)
+    ApplyForceToEntity(
+        entity,
+        forceType,
+        direction,
+        rotation,
+        boneIndex,
+        isDirectionRel,
+        ignoreUpVec,
+        isForceRel,
+        p12,
+        p13
+    )
+    Wait(1500)
+    ClearPedTasksImmediately(entity)
 
-    FreezeEntityPosition(ped, true)
-
-    local netScene = NetworkCreateSynchronisedScene(targetPosition, targetRotation, 2, false, false, 1065353216, 0, 1065353216)
-    local thrown = CreatePed(26, GetHashKey(throw), targetPosition, false, true)
-    NetworkAddPedToSynchronisedScene(ped, netScene, animDict, "throw_exit_trevor", 1.0, -4.0, 157, 92, 1148846080, 0)
-    NetworkAddPedToSynchronisedScene(thrown, netScene, animDict, "throw_exit_victim", 1.0, -4.0, 157, 92, 1148846080, 0)
-    NetworkForceLocalUseOfSyncedSceneCamera(netScene, "switch@trevor@bridge", "throw_exit_cam")
-    NetworkStartSynchronisedScene(netScene)
-    Citizen.Wait(7000)
-    NetworkStopSynchronisedScene(netScene)
-    FreezeEntityPosition(ped, false)
-    RemoveAnimDict(animDict)
 end)
