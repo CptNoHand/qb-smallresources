@@ -1,4 +1,12 @@
 RegisterCommand('slide', function()
+    local forceTypes = {
+        MinForce = 0,
+        MaxForceRot = 1,
+        MinForce2 = 2,
+        MaxForceRot2 = 3,
+        ForceNoRot = 4,
+        ForceRotPlusForce = 5
+    }
 
     local entity = PlayerPedId()
     local forceType = forceTypes.MaxForceRot2
