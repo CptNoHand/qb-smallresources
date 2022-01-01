@@ -52,11 +52,10 @@ CreateThread(function()
 	for i = 1, 15 do
 		EnableDispatchService(i, false)
 	end
-		
+
 	SetMaxWantedLevel(0)
 end)
 
 if Config.IdleCamera then --Disable Idle Cinamatic Cam
   DisableIdleCamera(true)
-	end
 end
