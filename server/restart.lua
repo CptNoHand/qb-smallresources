@@ -1,6 +1,5 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
-
 restarttimes = { '23:30', '11:30' }
 
 Citizen.CreateThread(function()
