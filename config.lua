@@ -2,7 +2,7 @@ Config = {}
 Config.MaxWidth = 5.0
 Config.MaxHeight = 5.0
 Config.MaxLength = 5.0
-Config.DamageNeeded = 50.0
+Config.DamageNeeded = 25.0
 Config.IdleCamera = true
 Config.EnableProne = true
 Config.JointEffectTime = 60
@@ -225,19 +225,6 @@ Config.Teleports = {
         },
 
     },
-    --Coke Processing Enter/Exit
-    [2] = {
-        [1] = {
-            coords = vector4(909.49, -1589.22, 30.51, 92.24),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Enter Coke Processing'
-        },
-        [2] = {
-            coords = vector4(1088.81, -3187.57, -38.99, 181.7),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Leave'
-        },
-    },
     --Rooftop Apartment
     [3] = {
         [1] = {
@@ -309,21 +296,5 @@ Config.CarWash = { -- carwash
     [1] = {
         ["label"] = "Hands Free Carwash",
         ["coords"] = vector3(25.29, -1391.96, 29.33),
-    },
-    [2] = {
-        ["label"] = "Hands Free Carwash",
-        ["coords"] = vector3(174.18, -1736.66, 29.35),
-    },
-    [3] = {
-        ["label"] = "Hands Free Carwash",
-        ["coords"] = vector3(-74.56, 6427.87, 31.44),
-    },
-    [4] = {
-        ["label"] = "Hands Free Carwash",
-        ["coords"] = vector3(1363.22, 3592.7, 34.92),
-    },
-    [5] = {
-        ["label"] = "Hands Free Carwash",
-        ["coords"] = vector3(-699.62, -932.7, 19.01),
     }
 }

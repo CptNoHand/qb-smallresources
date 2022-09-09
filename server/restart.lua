@@ -8,41 +8,6 @@ Citizen.CreateThread(function()
 		local time = os.date("%X"):sub(1, -4)
 		for i=1, #restarttimes, 1 do
 			if restarttimes[i] == time then
-				TriggerEvent('InteractSound_SV:PlayOnAll', "siren6")
-				TriggerClientEvent('chat:addMessage', -1, {
-					template = '<div class="announcement"><i class="fa fa-bullhorn"></i> {0}<br>^0{1}</div>',
-					args = { "Emergency Announcement!", "Attention Citizens! 📡 a Hurricane is going to hit the city in 30 minutes!" }
-				})
-				Citizen.Wait(900000)
-				TriggerEvent('InteractSound_SV:PlayOnAll', "siren5")
-				TriggerClientEvent('chat:addMessage', -1, {
-					template = '<div class="announcement"><i class="fa fa-bullhorn"></i> {0}<br>^0{1}</div>',
-					args = { "Emergency Announcement!", "Attention Citizens! 📡 a Hurricane is going to hit the city in 25 minutes! Seek shelter!" }
-				})
-				Citizen.Wait(300000)
-				TriggerEvent('InteractSound_SV:PlayOnAll', "siren4")
-				TriggerClientEvent('chat:addMessage', -1, {
-					template = '<div class="announcement"><i class="fa fa-bullhorn"></i> {0}<br>^0{1}</div>',
-					args = { "Emergency Announcement!", "Attention Citizens! 📡 a Hurricane is going to hit the City any moment!" }
-				})
-				Citizen.Wait(300000)
-				TriggerEvent('InteractSound_SV:PlayOnAll', "siren3")
-				TriggerClientEvent('chat:addMessage', -1, {
-					template = '<div class="announcement"><i class="fa fa-bullhorn"></i> {0}<br>^0{1}</div>',
-					args = { "Emergency Announcement!", "Attention Citizens! 📡 a Hurricane has hit the City. Seek Shelter!" }
-				})
-				Citizen.Wait(180000)
-				TriggerEvent('InteractSound_SV:PlayOnAll', "siren2")
-				TriggerClientEvent('chat:addMessage', -1, {
-					template = '<div class="announcement"><i class="fa fa-bullhorn"></i> {0}<br>^0{1}</div>',
-					args = { "Emergency Announcement!", "Attention Citizens! 📡 a Hurricane has hit the City. Seek Shelter!" }
-				})
-				Citizen.Wait(60000)
-				TriggerEvent('InteractSound_SV:PlayOnAll', "siren1")
-				TriggerClientEvent('chat:addMessage', -1, {
-					template = '<div class="announcement"><i class="fa fa-bullhorn"></i> {0}<br>^0{1}</div>',
-					args = { "Emergency Announcement!", "Attention Citizens! 📡 a Hurricane has hit the City in just a few minutes. Seek Shelter!" }
-				})
 				Citizen.Wait(30000)
 				TriggerEvent('InteractSound_SV:PlayOnAll', "siren1")
 				TriggerClientEvent('chat:addMessage', -1, {
