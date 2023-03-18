@@ -94,3 +94,39 @@ CreateThread(function()
 		SetPedDropsWeaponsWhenDead(v, false)
 	end
 end)
+
+QBCore = exports['qb-core']:GetCoreObject()
+
+CreateThread(function()
+    while true do
+        local sleep = 5000
+        local PlayerData = QBCore.Functions.GetPlayerData()
+        local ped = PlayerPedId()
+        if LocalPlayer.state['isLoggedIn'] then
+            if PlayerData.gang.name == "none" then
+                SetWeaponAnimationOverride(ped, `default`)
+            else
+                SetWeaponAnimationOverride(ped, `Gang1H`)
+            end
+        end
+        Wait(sleep)
+    end
+end)
+
+RegisterNetEvent('QBCore:Client:OnGangUpdate', function()
+    local PlayerData = QBCore.Functions.GetPlayerData()
+    local ped = PlayerPedId()
+    if PlayerData.gang.name == "none" then
+        SetWeaponAnimationOverride(ped, `default`)
+    else
+        SetWeaponAnimationOverride(ped, `Gang1H`)
+    end
+end)
+
+RegisterNetEvent('QBCore:Client:OnJobUpdate', function()
+    local PlayerData = QBCore.Functions.GetPlayerData()
+    local ped = PlayerPedId()
+    if PlayerData.job.name == "police"then
+        SetWeaponAnimationOverride(ped, `default`)
+    end
+end)

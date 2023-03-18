@@ -37,11 +37,11 @@ CreateThread(function()
     while true do
         Wait(500)
         local vehicle = QBCore.Functions.GetClosestVehicle()
-        if vehicle and vehicle ~= 0 then
+        if DoesEntityExist(vehicle) then
             local ped = PlayerPedId()
             local pos = GetEntityCoords(ped)
             local vehpos = GetEntityCoords(vehicle)
-            local dimension = GetModelDimensions(GetEntityModel(vehicle), First, Second)
+            local dimension = GetModelDimensions(GetEntityModel(vehicle))
 
             if #(pos - vehpos) < 3.0 and not IsPedInAnyVehicle(ped, false) then
                 Vehicle.Coords = vehpos
@@ -66,18 +66,14 @@ CreateThread(function()
 end)
 
 CreateThread(function()
-    local sleep
     while true do
-        sleep = 250
+        Wait(250)
         if Vehicle.Vehicle then
             local ped = PlayerPedId()
             local vehClass = GetVehicleClass(Vehicle.Vehicle)
-            sleep = 0
 
             if IsVehicleSeatFree(Vehicle.Vehicle, -1) and GetVehicleEngineHealth(Vehicle.Vehicle) <= Config.DamageNeeded and GetVehicleEngineHealth(Vehicle.Vehicle) >= 0 then
-                if CurrentVehicle ~= nil then
-                    DrawText3Ds(Vehicle.Coords.x, Vehicle.Coords.y, Vehicle.Coords.z, 'Press [~g~SHIFT~w~] and [~g~E~w~] to push the vehicle')
-                end
+                DrawText3Ds(Vehicle.Coords.x, Vehicle.Coords.y, Vehicle.Coords.z, 'Press [~g~SHIFT~w~] and [~g~E~w~] to push the vehicle')
             end
 
             if IsControlPressed(0, 21) and IsVehicleSeatFree(Vehicle.Vehicle, -1) and
@@ -102,10 +98,7 @@ CreateThread(function()
                 while true do
                     Wait(0)
                     if IsDisabledControlPressed(0, 34) then
-                        TaskVehicleTempAction(ped, currentVehicle, 11, 1000)
-                    end
-
-                    if IsDisabledControlPressed(0, 9) then
+                        TaskVehicleTempAction
                         TaskVehicleTempAction(ped, currentVehicle, 10, 1000)
                     end
 

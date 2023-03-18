@@ -26,7 +26,7 @@ local vehicleClasses = {
 local limiting = false
 local function GetVehicleSpeed() return GetEntitySpeed(GetVehicle()) end
 local function IsDriver() return GetPedInVehicleSeat(GetVehiclePedIsIn(PlayerPedId(), false), -1) == PlayerPedId() end
-local function TransformToMph(speed) return math.floor(speed * 2.2369 + 0.5) end -- Comment me for mp/h
+local function TransformToMph(speed) return math.floor(speed * 3.6 + 0.5) end -- Comment me for mp/h
 local function SpeedLimiter()
     local ped = PlayerPedId()
     local Vehicle = GetVehiclePedIsIn(ped, false)
@@ -39,7 +39,7 @@ local function SpeedLimiter()
         if TransformToMph(speed) >= 15 then
             limiting = true
             SetVehicleMaxSpeed(Vehicle, speed)
-            QBCore.Functions.Notify("Speed limiter enabled: "..TransformToMph(speed)..' MPH', "primary")
+            QBCore.Functions.Notify("Speed limiter enabled: "..TransformToMph(speed)..' KMH', "primary")
             CreateThread(function()
                 while limiting do
                     if not IsDriver() then
@@ -52,7 +52,7 @@ local function SpeedLimiter()
                 end
             end)
         else
-            QBCore.Functions.Notify("Speed limiter minimum: 15MPH", "primary")
+            QBCore.Functions.Notify("Speed limiter minimum: 15KMH", "primary")
         end
     end
 end

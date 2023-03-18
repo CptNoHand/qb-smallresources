@@ -2,9 +2,9 @@ Config = {}
 Config.MaxWidth = 5.0
 Config.MaxHeight = 5.0
 Config.MaxLength = 5.0
-Config.DamageNeeded = 25.0
+Config.DamageNeeded = 40.0
 Config.IdleCamera = true
-Config.EnableProne = true
+Config.EnableProne = false
 Config.JointEffectTime = 60
 Config.RemoveWeaponDrops = true
 Config.RemoveWeaponDropsTimer = 25
@@ -13,16 +13,16 @@ Config.DirtLevel = 0.1 -- Threshold for the dirt level to be counted as dirty
 Config.DisableAmbience = false -- Disabled distance sirens, distance car alarms, etc
 
 ConsumablesEat = {
-    ["sandwich"] = math.random(35, 54),
-    ["tosti"] = math.random(40, 50),
-    ["twerks_candy"] = math.random(35, 54),
+    ["sandwich"] = math.random(60, 75),
+    ["tosti"] = math.random(60, 75),
+    ["twerks_candy"] = math.random(60, 75),
     ["snikkel_candy"] = math.random(40, 50),
-    ["burger-bleeder"] = math.random(35, 54),
-    ["burger-moneyshot"] = math.random(35, 54),
-    ["burger-torpedo"] = math.random(35, 54),
-    ["burger-heartstopper"] = math.random(35, 54),
-    ["burger-meatfree"] = math.random(35, 54),
-    ["burger-fries"] = math.random(35, 54),
+    ["burger-bleeder"] = math.random(60, 75),
+    ["burger-moneyshot"] = math.random(60, 75),
+    ["burger-torpedo"] = math.random(60, 75),
+    ["burger-heartstopper"] = math.random(60, 75),
+    ["burger-meatfree"] = math.random(60, 75),
+    ["burger-fries"] = math.random(60, 75),
     ["crisps"] = math.random(10, 20),
     ["sushirolls"] = math.random(20, 32), -- 1
     ["pizzaslice"] = math.random(12, 16), -- 2
@@ -67,16 +67,16 @@ ConsumablesEat = {
 }
 
 ConsumablesDrink = {
-    ["water_bottle"] = math.random(35, 54),
-    ["kurkakola"] = math.random(35, 54),
+    ["water_bottle"] = math.random(60, 75),
+    ["kurkakola"] = math.random(60, 75),
     ["coffee"] = math.random(40, 50),
     ["burger-softdrink"] = math.random(40, 50),
     ["burger-mshake"] = math.random(40, 50),
-    ["sprite"] = math.random(35, 54), -- 1
-    ["pepsi"] = math.random(35, 54), -- 2
-    ["mtndew"] = math.random(35, 54), -- 3
-    ["lemonade"] = math.random(35, 54), -- 4
-    ["icedtea"] = math.random(35, 54), -- 5
+    ["sprite"] = math.random(60, 75), -- 1
+    ["pepsi"] = math.random(60, 75), -- 2
+    ["mtndew"] = math.random(60, 75), -- 3
+    ["lemonade"] = math.random(60, 75), -- 4
+    ["icedtea"] = math.random(60, 75), -- 5
     ["nekolatte"] = math.random(20, 40),
     ["bobatea"] = math.random(20, 40),
     ["bbobatea"] = math.random(20, 40),
@@ -205,9 +205,7 @@ Config.BlacklistedPeds = {
     [`s_f_y_sheriff_01`] = true,
     [`s_f_y_cop_01`] = true,
     [`s_m_y_hwaycop_01`] = true,
-    [`ig_barry`] = true,
-    [`ig_bestman`] = true,
-    [`ig_hunter`] = true,
+    [`a_c_mtlion`] = true,
 }
 
 Config.Teleports = {
@@ -288,6 +286,19 @@ Config.Teleports = {
             coords = vector4(330.41, -601.1, 43.28, 71.57),
             ["AllowVehicle"] = false,
             drawText = '[E] Take Elevator Down'
+        },
+    },
+    --Nürburgring
+    [8] = {
+        [1] = {
+            coords = vector4(-1651.1, -3158.92, 13.99, 325.46),
+            ["AllowVehicle"] = true,
+            drawText = '[E] Auf zum Nürburgring'
+        },
+        [2] = {
+            coords = vector4(3665.86, -6535.55, 2190.9, 137.21),
+            ["AllowVehicle"] = true,
+            drawText = '[E] Zurück zum LS Flughafen'
         },
     },
 }

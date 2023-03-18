@@ -50,9 +50,11 @@ PLAYER
 CIVMALE	
 #   Respect CIVMALE
 #   Respect CIVFEMALE
+#   Like PLAYER
 CIVFEMALE	
 #   Respect CIVFEMALE
 #   Respect CIVMALE
+#   Like PLAYER
 COP 
     Respect MEDIC FIREMAN COP
     Respect ARMY

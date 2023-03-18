@@ -4,7 +4,7 @@ local Webhooks = {
     ['default'] = 'https://discord.com/api/webhooks/927339469114339329/vYIWeLcXIlBJl2RsETSuZHaBX-_ofGQdRm2y_QsOWEwSsZkdGZM4U65Ld89ZdaJArf80',
     ['testwebhook'] = 'https://discord.com/api/webhooks/927339469114339329/vYIWeLcXIlBJl2RsETSuZHaBX-_ofGQdRm2y_QsOWEwSsZkdGZM4U65Ld89ZdaJArf80',
     ['playermoney'] = 'https://discord.com/api/webhooks/927339649628799016/XGcT_J08hhkcdCYDZXIHQ5yRMZsLdajgJp6Ct82c36IkdwLJ90YWF1KrnIu9cBY4hsQj',
-    ['playerinventory'] = 'https://discord.com/api/webhooks/911792633649725481/_nIVE5LF1nuk5xAokSmBZmR-rJtVOnr3nEfb0Q9KF4FbNt8EUTPBjxQ3VVtgppkL4t0m',
+    ['playerinventory'] = 'https://discord.com/api/webhooks/1017929686631845958/wzxd7ikZTzTm6IKDo3FE5PqtMN82MMs22rh4tvmyLoIgAvWugSnrQXXTK7KzLnGRGvgu',
     ['robbing'] = 'https://discord.com/api/webhooks/927340216468000770/xjbzBJfSvu5p8HqhUMyAJL4w9MhFvZ_GIDDsLfh6XjnH3FujAuCQFcUYZS6Sn6SzYwTS',
     ['cuffing'] = 'https://discord.com/api/webhooks/927339469114339329/vYIWeLcXIlBJl2RsETSuZHaBX-_ofGQdRm2y_QsOWEwSsZkdGZM4U65Ld89ZdaJArf80',
     ['drop'] = 'https://discord.com/api/webhooks/927339892835495957/jvico9jlkh6MTjpNqCnj4l-cGDwsStZvMZtIYHm4GsZ8pF4yfjMvaTXd92WLfyRyiM2G',
@@ -38,6 +38,9 @@ local Webhooks = {
     ['911'] = 'https://discord.com/api/webhooks/927340216468000770/xjbzBJfSvu5p8HqhUMyAJL4w9MhFvZ_GIDDsLfh6XjnH3FujAuCQFcUYZS6Sn6SzYwTS',
     ['palert'] = 'https://discord.com/api/webhooks/927340216468000770/xjbzBJfSvu5p8HqhUMyAJL4w9MhFvZ_GIDDsLfh6XjnH3FujAuCQFcUYZS6Sn6SzYwTS',
     ['house'] = 'https://discord.com/api/webhooks/927339469114339329/vYIWeLcXIlBJl2RsETSuZHaBX-_ofGQdRm2y_QsOWEwSsZkdGZM4U65Ld89ZdaJArf80',
+    ['societies'] = {'https://discord.com/api/webhooks/945332933240193036/jLwEyPjoX0f8_rB9973DiUXoTzkjIC6R49OtvKBEr-F9oDHcThepJc2-XbcufEpfspgn'},
+    ['vehicleshop'] = {'https://discord.com/api/webhooks/945332933240193036/jLwEyPjoX0f8_rB9973DiUXoTzkjIC6R49OtvKBEr-F9oDHcThepJc2-XbcufEpfspgn'},
+    ['testcar'] = {'https://discord.com/api/webhooks/945332933240193036/jLwEyPjoX0f8_rB9973DiUXoTzkjIC6R49OtvKBEr-F9oDHcThepJc2-XbcufEpfspgn'},
 }
 
 local Colors = { -- https://www.spycolor.com/

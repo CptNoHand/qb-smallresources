@@ -47,10 +47,7 @@ CreateThread(function()
                     SetPedMovementClipset(ped, "move_ped_crouched",1.0)
                     SetPedWeaponMovementClipset(ped, "move_ped_crouched")
                     SetPedStrafeClipset(ped, "move_ped_crouched_strafing")
-                elseif stage == 3 then
-                    ClearPedTasks(ped)
-                    RequestWalking("move_crawl")
-                elseif stage > 3 then
+                elseif stage > 2 then
                     stage = 0
                     ClearPedTasksImmediately(ped)
                     ResetAnimSet()
@@ -65,24 +62,6 @@ CreateThread(function()
                 elseif GetEntitySpeed(ped) < 1.0 and (GetFollowPedCamViewMode() == 4 or GetFollowVehicleCamViewMode() == 4) then
                     ResetPedWeaponMovementClipset(ped)
                     ResetPedStrafeClipset(ped)
-                end
-            elseif stage == 3 then
-                DisableControlAction(0, 21, true ) -- sprint
-                DisableControlAction(1, 140, true)
-                DisableControlAction(1, 141, true)
-                DisableControlAction(1, 142, true)
-
-                if (IsControlPressed(0, 32) and not movingForward) and Config.EnableProne then
-                    movingForward = true
-                    SetPedMoveAnimsBlendOut(ped)
-                    local pronepos = GetEntityCoords(ped)
-                    TaskPlayAnimAdvanced(ped, "move_crawl", "onfront_fwd", pronepos.x, pronepos.y, pronepos.z+0.1, 0.0, 0.0, GetEntityHeading(ped), 100.0, 0.4, 1.0, 7, 2.0, 1, 1)
-                    Wait(500)
-                elseif not IsControlPressed(0, 32) and movingForward then
-                    local pronepos = GetEntityCoords(ped)
-                    TaskPlayAnimAdvanced(ped, "move_crawl", "onfront_fwd", pronepos.x, pronepos.y, pronepos.z+0.1, 0.0, 0.0, GetEntityHeading(ped), 100.0, 0.4, 1.0, 6, 2.0, 1, 1)
-                    Wait(500)
-                    movingForward = false
                 end
 
                 if IsControlPressed(0, 34) then
