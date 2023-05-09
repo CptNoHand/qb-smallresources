@@ -24,7 +24,7 @@ RegisterNetEvent('equip:harness', function(item)
     if not Player then return end
 
     if not Player.PlayerData.items[item.slot].info.uses then
-        Player.PlayerData.items[item.slot].info.uses = 19
+        Player.PlayerData.items[item.slot].info.uses = Config.HarnessUses - 1
         Player.Functions.SetInventory(Player.PlayerData.items)
     elseif Player.PlayerData.items[item.slot].info.uses == 1 then
         TriggerClientEvent("inventory:client:ItemBox", src, QBCore.Shared.Items['harness'], "remove")
@@ -60,7 +60,7 @@ RegisterNetEvent('qb-carwash:server:washCar', function()
     elseif Player.Functions.RemoveMoney('bank', Config.DefaultPrice, "car-washed") then
         TriggerClientEvent('qb-carwash:client:washCar', src)
     else
-        TriggerClientEvent('QBCore:Notify', src, 'You dont have enough money..', 'error')
+        TriggerClientEvent('QBCore:Notify', src, Lang:t("error.dont_have_enough_money"), 'error')
     end
 end)
 
