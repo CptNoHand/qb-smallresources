@@ -64,6 +64,12 @@ ConsumablesEat = {
     ["wings"] = math.random(40, 50),
     ["pickle"] = math.random(40, 50),
     ["nachoes"] = math.random(30, 40),
+    -- Casino Bar Snacks
+    ["casino_burger"] = math.random(25, 40),
+    ["casino_psqs"] = math.random(25, 40),
+    ["casino_ego_chaser"] = math.random(25, 40),
+    ["casino_sandwitch"] = math.random(25, 40),
+    ["casino_donut"] = math.random(25, 40)
 }
 
 ConsumablesDrink = {
@@ -87,6 +93,12 @@ ConsumablesDrink = {
     ["mocha"] = math.random(20, 40),
     ["milk"] = math.random(20, 40),
     ["cranberry"] = math.random(20, 40),
+    -- Casino Bar Drinks
+    ["casino_beer"] = math.random(25, 40),
+    ["casino_coke"] = math.random(25, 40),
+    ["casino_sprite"] = math.random(25, 40),
+    ["casino_luckypotion"] = math.random(25, 40),
+    ["casino_coffee"] = math.random(25, 40)
 }
 
 ConsumablesAlcohol = {
@@ -288,24 +300,7 @@ Config.Teleports = {
             drawText = '[E] Take Elevator Down'
         },
     },
-    --Nürburgring
-    [8] = {
-        [1] = {
-            coords = vector4(-1651.1, -3158.92, 13.99, 325.46),
-            ["AllowVehicle"] = true,
-            drawText = '[E] Auf zum Nürburgring'
-        },
-        [2] = {
-            coords = vector4(3665.86, -6535.55, 2190.9, 137.21),
-            ["AllowVehicle"] = true,
-            drawText = '[E] Zurück zum LS Flughafen'
-        },
-    },
 }
 
 Config.CarWash = { -- carwash
-    [1] = {
-        ["label"] = "Hands Free Carwash",
-        ["coords"] = vector3(25.29, -1391.96, 29.33),
-    }
 }

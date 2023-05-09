@@ -80,47 +80,54 @@ CreateThread(function()
                 not IsEntityAttachedToEntity(ped, Vehicle.Vehicle) and IsControlJustPressed(0, 38) and
                 GetVehicleEngineHealth(Vehicle.Vehicle) <= Config.DamageNeeded then
                 NetworkRequestControlOfEntity(Vehicle.Vehicle)
-                if Vehicle.IsInFront then
-                    AttachEntityToEntity(ped, Vehicle.Vehicle, GetPedBoneIndex(ped, 6286), 0.0,
-                        Vehicle.Dimensions.y * -1 + 0.1, Vehicle.Dimensions.z + 1.0, 0.0, 0.0, 180.0, false, false, false,
-                        true, 0, true)
-                else
-                    AttachEntityToEntity(ped, Vehicle.Vehicle, GetPedBoneIndex(ped, 6286), 0.0,
-                        Vehicle.Dimensions.y - 0.3, Vehicle.Dimensions.z + 1.0, 0.0, 0.0, 0.0, false, false, false, true,
-                        0, true)
+                local timeout = 2000
+                while not NetworkHasControlOfEntity(Vehicle.Vehicle) and timeout > 0 do
+                    Wait(100)
+                    timeout = timeout - 100
                 end
-
-                loadAnimDict('missfinale_c2ig_11')
-                TaskPlayAnim(ped, 'missfinale_c2ig_11', 'pushcar_offcliff_m', 2.0, -8.0, -1, 35, 0, false, false, false)
-                Wait(200)
-
-                local currentVehicle = Vehicle.Vehicle
-                while true do
-                    Wait(0)
-                    if IsDisabledControlPressed(0, 34) then
-                        TaskVehicleTempAction
-                        TaskVehicleTempAction(ped, currentVehicle, 10, 1000)
-                    end
-
+                if timeout > 0 then
                     if Vehicle.IsInFront then
-                        SetVehicleForwardSpeed(currentVehicle, -1.0)
+                        AttachEntityToEntity(ped, Vehicle.Vehicle, GetPedBoneIndex(ped, 6286), 0.0,
+                            Vehicle.Dimensions.y * -1 + 0.1, Vehicle.Dimensions.z + 1.0, 0.0, 0.0, 180.0, false, false, false,
+                            true, 0, true)
                     else
-                        SetVehicleForwardSpeed(currentVehicle, 1.0)
+                        AttachEntityToEntity(ped, Vehicle.Vehicle, GetPedBoneIndex(ped, 6286), 0.0,
+                            Vehicle.Dimensions.y - 0.3, Vehicle.Dimensions.z + 1.0, 0.0, 0.0, 0.0, false, false, false, true,
+                            0, true)
                     end
 
-                    if HasEntityCollidedWithAnything(currentVehicle) then
-                        SetVehicleOnGroundProperly(currentVehicle)
-                    end
+                    loadAnimDict('missfinale_c2ig_11')
+                    TaskPlayAnim(ped, 'missfinale_c2ig_11', 'pushcar_offcliff_m', 2.0, -8.0, -1, 35, 0, false, false, false)
+                    Wait(200)
 
-                    if not IsDisabledControlPressed(0, 38) then
-                        DetachEntity(ped, false, false)
-                        StopAnimTask(ped, 'missfinale_c2ig_11', 'pushcar_offcliff_m', 2.0)
-                        FreezeEntityPosition(ped, false)
-                        break
+                    local currentVehicle = Vehicle.Vehicle
+                    while true do
+                        Wait(0)
+                        if IsDisabledControlPressed(0, 34) then
+                            TaskVehicleTempAction(ped, currentVehicle, 10) -- specify action type
+                        end
+
+                        if Vehicle.IsInFront then
+                            SetVehicleForwardSpeed(currentVehicle, -1.0)
+                        else
+                            SetVehicleForwardSpeed(currentVehicle, 1.0)
+                        end
+
+                        if HasEntityCollidedWithAnything(currentVehicle) then
+                            SetVehicleOnGroundProperly(currentVehicle)
+                        end
+
+                        if not IsDisabledControlPressed(0, 38) then
+                            DetachEntity(ped, false, false)
+                            StopAnimTask(ped, 'missfinale_c2ig_11', 'pushcar_offcliff_m', 2.0)
+                            FreezeEntityPosition(currentVehicle, false) -- freeze the vehicle, not the player character
+                            break
+                        end
                     end
                 end
             end
         end
-        Wait(sleep)
+        Wait(250) -- fixed variable name
     end
 end)
+

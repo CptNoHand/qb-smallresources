@@ -1,3 +1,4 @@
+local QBCore = exports['qb-core']:GetCoreObject()
 CreateThread(function() -- TRAIN SPAWNS / SPAWN TRAINS
     SwitchTrainTrack(0, true)
     SwitchTrainTrack(3, true)
@@ -5,27 +6,22 @@ CreateThread(function() -- TRAIN SPAWNS / SPAWN TRAINS
     SetRandomTrains(true)
 end)
 
-local ped = PlayerPedId()
-
+local QBCore = exports['qb-core']:GetCoreObject()
 CreateThread(function()
-    local resetcounter = 0
-    local jumpDisabled = false
     while true do
-        Wait(1)
-        if jumpDisabled and resetcounter > 0 and IsPedJumping(ped) then
-            SetPedToRagdoll(ped, 900, 900, 2, 0, 0, 0)
-            resetcounter = 0
-        end
-        if not jumpDisabled and IsPedJumping(ped) then
-            if math.random(2, 3) == 2 then
-                jumpDisabled = true
+        Wait(100)
+        local ped = PlayerPedId()
+        if IsPedOnFoot(ped) and not IsPedSwimming(ped) and (IsPedRunning(ped) or IsPedSprinting(ped)) and not IsPedClimbing(ped) and IsPedJumping(ped) and not IsPedRagdoll(ped) then
+            local chance_result = math.random()
+            --You can change the chance as you want! Just changed 0.2!
+            if chance_result < 0.2 then 
+                Wait(600)
+                ShakeGameplayCam('SMALL_EXPLOSION_SHAKE', 0.08)
+                QBCore.Functions.Notify('You are too tired!', 'error', 2500)
+                SetPedToRagdoll(ped, 5000, 1, 2)
+            else
+                Wait(2000)
             end
-            resetcounter = 1000
-        end
-        if resetcounter > 0 then
-            resetcounter = resetcounter - 1
-        elseif jumpDisabled then
-            jumpDisabled = false
         end
     end
 end)
