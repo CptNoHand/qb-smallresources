@@ -38,7 +38,9 @@ local Webhooks = {
     ['911'] = 'https://discord.com/api/webhooks/927340216468000770/xjbzBJfSvu5p8HqhUMyAJL4w9MhFvZ_GIDDsLfh6XjnH3FujAuCQFcUYZS6Sn6SzYwTS',
     ['palert'] = 'https://discord.com/api/webhooks/927340216468000770/xjbzBJfSvu5p8HqhUMyAJL4w9MhFvZ_GIDDsLfh6XjnH3FujAuCQFcUYZS6Sn6SzYwTS',
     ['house'] = 'https://discord.com/api/webhooks/927339469114339329/vYIWeLcXIlBJl2RsETSuZHaBX-_ofGQdRm2y_QsOWEwSsZkdGZM4U65Ld89ZdaJArf80',
-    ['qbjobs'] = '',
+    ['societies'] = {'https://discord.com/api/webhooks/945332933240193036/jLwEyPjoX0f8_rB9973DiUXoTzkjIC6R49OtvKBEr-F9oDHcThepJc2-XbcufEpfspgn'},
+    ['vehicleshop'] = {'https://discord.com/api/webhooks/945332933240193036/jLwEyPjoX0f8_rB9973DiUXoTzkjIC6R49OtvKBEr-F9oDHcThepJc2-XbcufEpfspgn'},
+    ['testcar'] = {'https://discord.com/api/webhooks/945332933240193036/jLwEyPjoX0f8_rB9973DiUXoTzkjIC6R49OtvKBEr-F9oDHcThepJc2-XbcufEpfspgn'},
 }
 
 local Colors = { -- https://www.spycolor.com/
