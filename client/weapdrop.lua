@@ -30,7 +30,7 @@ local disabledPickups = {
     `PICKUP_WEAPON_GRENADE`,
     `PICKUP_WEAPON_GRENADELAUNCHER`,
     `PICKUP_WEAPON_GUSENBERG`,
-    `PICKUP_WEAPON_GolfClub`,
+    `PICKUP_WEAPON_GOLFCLUB`,
     `PICKUP_WEAPON_HAMMER`,
     `PICKUP_WEAPON_HATCHET`,
     `PICKUP_WEAPON_HEAVYPISTOL`,
@@ -85,10 +85,19 @@ local disabledPickups = {
     `PICKUP_WEAPON_WRENCH`,
     'PICKUP_WEAPON_2011',
     `PICKUP_WEAPON_MINIUZI`,
+	`PICKUP_WEAPON_CERAMICPISTOL`,
+	`PICKUP_WEAPON_NAVYREVOLVER`,
+	`PICKUP_WEAPON_GADGETPISTOL`,
+	`PICKUP_WEAPON_PISTOLXM3`,
+	`PICKUP_WEAPON_TECPISTOL`,
+	`PICKUP_WEAPON_HEAVYRIFLE`,
+	`PICKUP_WEAPON_MILITARYRIFLE`,
+	`PICKUP_WEAPON_TACTICALRIFLE`,
+	`PICKUP_WEAPON_SWEEPERSHOTGUN`
 }
 
 CreateThread(function()
-    for _, hash in pairs(disabledPickups) do
-        ToggleUsePickupsForPlayer(PlayerId(), hash, false)
+    for i = 1, #disabledPickups do
+        ToggleUsePickupsForPlayer(PlayerId(), disabledPickups[i], false)
     end
 end)

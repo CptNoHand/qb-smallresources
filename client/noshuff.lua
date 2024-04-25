@@ -1,19 +1,13 @@
 local disableShuffle = true
 
-CreateThread(function()
-    local sleep
-    while true do
-        sleep = 100
-        local ped = PlayerPedId()
-        local veh = GetVehiclePedIsIn(ped, false)
-        if IsPedInAnyVehicle(ped, false) and disableShuffle then
-            if GetPedInVehicleSeat(veh, 0) == ped then
-                if GetIsTaskActive(ped, 165) then
-                    sleep = 0
-                    SetPedIntoVehicle(ped, veh, 0)
-                    SetPedConfigFlag(ped, 184, true)
-                end
-            end
+RegisterNetEvent('QBCore:Client:EnteredVehicle', function(data)
+    local ped = PlayerPedId()
+    while IsPedInAnyVehicle(ped, false) do
+        local sleep = 100
+        if disableShuffle and GetPedInVehicleSeat(data.vehicle, 0) == ped and GetIsTaskActive(ped, 165) then
+            sleep = 0
+            SetPedIntoVehicle(ped, data.vehicle, 0)
+            SetPedConfigFlag(ped, 184, true)
         end
         Wait(sleep)
     end
@@ -31,6 +25,6 @@ RegisterNetEvent('SeatShuffle', function()
 	end
 end)
 
-RegisterCommand("shuff", function()
-    TriggerEvent("SeatShuffle")
+RegisterCommand('shuff', function()
+    TriggerEvent('SeatShuffle')
 end, false)

@@ -1,16 +1,11 @@
 local QBCore = exports['qb-core']:GetCoreObject()
-local VehicleNitrous = {}
 
 RegisterNetEvent('tackle:server:TacklePlayer', function(playerId)
-    TriggerClientEvent("tackle:client:GetTackled", playerId)
+    TriggerClientEvent('tackle:client:GetTackled', playerId)
 end)
 
-QBCore.Functions.CreateCallback('nos:GetNosLoadedVehs', function(_, cb)
-    cb(VehicleNitrous)
-end)
-
-QBCore.Commands.Add("id", "Check Your ID #", {}, false, function(source)
-    TriggerClientEvent('QBCore:Notify', source,  "ID: "..source)
+QBCore.Commands.Add('id', 'Check Your ID #', {}, false, function(source)
+    TriggerClientEvent('QBCore:Notify', source, 'ID: ' .. source)
 end)
 
 RegisterNetEvent('qb-carwash:server:washCar', function()
@@ -19,22 +14,17 @@ RegisterNetEvent('qb-carwash:server:washCar', function()
 
     if not Player then return end
 
-    if Player.Functions.RemoveMoney('cash', Config.DefaultPrice, "car-washed") then
+    if Player.Functions.RemoveMoney('cash', Config.CarWash.defaultPrice, 'car-washed') then
         TriggerClientEvent('qb-carwash:client:washCar', src)
-    elseif Player.Functions.RemoveMoney('bank', Config.DefaultPrice, "car-washed") then
+    elseif Player.Functions.RemoveMoney('bank', Config.CarWash.defaultPrice, 'car-washed') then
         TriggerClientEvent('qb-carwash:client:washCar', src)
     else
-        TriggerClientEvent('QBCore:Notify', src, Lang:t("error.dont_have_enough_money"), 'error')
+        TriggerClientEvent('QBCore:Notify', src, Lang:t('error.dont_have_enough_money'), 'error')
     end
 end)
 
 QBCore.Functions.CreateCallback('smallresources:server:GetCurrentPlayers', function(_, cb)
-    local TotalPlayers = 0
-    local players = QBCore.Functions.GetPlayers()
-    for _ in pairs(players) do
-        TotalPlayers += 1
-    end
-    cb(TotalPlayers)
+    cb(#GetPlayers())
 end)
 
 QBCore.Commands.Add('transferveh', 'Transfer Vehicle', {{name = 'id', help = 'Player ID'}}, true, function(source, args)

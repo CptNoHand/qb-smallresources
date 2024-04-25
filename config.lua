@@ -1,187 +1,185 @@
 Config = {}
-Config.MaxWidth = 5.0
-Config.MaxHeight = 5.0
-Config.MaxLength = 5.0
-Config.DamageNeeded = 40.0
-Config.IdleCamera = true
-Config.EnableProne = false
-Config.JointEffectTime = 60
-Config.RemoveWeaponDrops = true
-Config.RemoveWeaponDropsTimer = 25
-Config.DefaultPrice = 20 -- Default price for the carwash
-Config.DirtLevel = 0.1 -- Threshold for the dirt level to be counted as dirty
-Config.DisableAmbience = false -- Disabled distance sirens, distance car alarms, etc
 
-ConsumablesEat = {
-    ["sandwich"] = math.random(60, 75),
-    ["tosti"] = math.random(60, 75),
-    ["twerks_candy"] = math.random(60, 75),
-    ["snikkel_candy"] = math.random(80, 90),
-    ["burger-bleeder"] = math.random(60, 75),
-    ["burger-moneyshot"] = math.random(60, 75),
-    ["burger-torpedo"] = math.random(60, 75),
-    ["burger-heartstopper"] = math.random(60, 75),
-    ["burger-meatfree"] = math.random(60, 75),
-    ["burger-fries"] = math.random(60, 75),
-    ["crisps"] = math.random(10, 20),
-    ["sushirolls"] = math.random(20, 32), -- 1
-    ["pizzaslice"] = math.random(12, 16), -- 2
-    ["cookie"] = math.random(5, 10), -- 3
-    ["muffin"] = math.random(5, 10), -- 4
-    ["fries"] = math.random(10, 18), -- 5
-    ["donut"] = math.random(8, 26), -- 6
-    ["icecream"] = math.random(5, 12), -- 7
-    ["cupcake"] = math.random(7, 18), -- 8
-    ["gum"] = math.random(3, 8), -- 9
-    ["bmochi"] = math.random(90, 99),
-    ["pmochi"] = math.random(80, 90),
-    ["gmochi"] = math.random(80, 90),
-    ["omochi"] = math.random(80, 90),
-    ["bento"] = math.random(80, 90),
-    ["riceball"] = math.random(80, 90),
-    ["miso"] = math.random(80, 90),
-    ["cake"] = math.random(80, 90),
-    ["nekocookie"] = math.random(80, 90),
-    ["nekodonut"] = math.random(80, 90),
-    ["rice"] = math.random(90, 99),
-    ["blueberry"] = math.random(90, 99),
-    ["strawberry"] = math.random(90, 99),
-    ["orange"] = math.random(90, 99),
-    ["cakepop"] = math.random(90, 99),
-    ["pancake"] = math.random(90, 99),
-    ["pizza"] = math.random(90, 99),
-    ["purrito"] = math.random(90, 99),
-    ["ramen"] = math.random(90, 99),
-    ["noodlebowl"] = math.random(90, 99),
-    ["chocolate"] = math.random(90, 99),
-    ["friedpick"] = math.random(80, 90),
-    ["maccheese"] = math.random(80, 90),
-    ["bplate"] = math.random(80, 90),
-    ["cplate"] = math.random(80, 90),
-    ["splate"] = math.random(80, 90),
-    ["rplate"] = math.random(80, 90),
-    ["nplate"] = math.random(80, 90),
-    ["wings"] = math.random(80, 90),
-    ["pickle"] = math.random(80, 90),
-    ["nachoes"] = math.random(90, 99),
-    -- Casino Bar Snacks
-    ["casino_burger"] = math.random(25, 40),
-    ["casino_psqs"] = math.random(25, 40),
-    ["casino_ego_chaser"] = math.random(25, 40),
-    ["casino_sandwitch"] = math.random(25, 40),
-    ["casino_donut"] = math.random(25, 40)
+Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add `setr UseTarget true` to use this and just that from true to false or the other way around)
+Config.PauseMapText = ''                                     -- Text shown above the map when ESC is pressed. If left empty 'FiveM' will appear
+Config.HarnessUses = 20
+Config.DamageNeeded = 100.0                                  -- amount of damage till you can push your vehicle. 0-1000
+Config.Logging = 'discord'                                   -- fivemanage
+
+Config.AFK = {
+    ignoredGroups = {
+        ['mod'] = true,
+        ['admin'] = true,
+        ['god'] = true
+    },
+    secondsUntilKick = 1000000, -- AFK Kick Time Limit (in seconds)
+    kickInCharMenu = false      -- Set to true if you want to kick players for being AFK even when they are in the character menu.
 }
 
-ConsumablesDrink = {
-    ["water_bottle"] = math.random(60, 75),
-    ["kurkakola"] = math.random(60, 75),
-    ["coffee"] = math.random(80, 90),
-    ["burger-softdrink"] = math.random(80, 90),
-    ["burger-mshake"] = math.random(80, 90),
-    ["sprite"] = math.random(60, 75), -- 1
-    ["pepsi"] = math.random(60, 75), -- 2
-    ["mtndew"] = math.random(60, 75), -- 3
-    ["lemonade"] = math.random(60, 75), -- 4
-    ["icedtea"] = math.random(60, 75), -- 5
-    ["nekolatte"] = math.random(20, 40),
-    ["bobatea"] = math.random(20, 40),
-    ["bbobatea"] = math.random(20, 40),
-    ["gbobatea"] = math.random(20, 40),
-    ["obobatea"] = math.random(20, 40),
-    ["pbobatea"] = math.random(20, 40),
-    ["milk"] = math.random(20, 40),
-    ["mocha"] = math.random(20, 40),
-    ["milk"] = math.random(20, 40),
-    ["cranberry"] = math.random(20, 40),
-    -- Casino Bar Drinks
-    ["casino_beer"] = math.random(25, 40),
-    ["casino_coke"] = math.random(25, 40),
-    ["casino_sprite"] = math.random(25, 40),
-    ["casino_luckypotion"] = math.random(25, 40),
-    ["casino_coffee"] = math.random(25, 40)
+Config.HandsUp = {
+    command = 'hu',
+    keybind = 'X',
+    controls = { 24, 25, 47, 58, 59, 63, 64, 71, 72, 75, 140, 141, 142, 143, 257, 263, 264 }
 }
 
-ConsumablesAlcohol = {
-    ["whiskey"] = math.random(20, 30),
-    ["beer"] = math.random(90, 99),
-    ["vodka"] = math.random(90, 99),
-    ["gin-tonic"] = math.random(20, 40),
-    ["new-western-dry"] = math.random(20, 40),
-    ["old-tom"] = math.random(20, 40),
-    ["cedar-ridge"] = math.random(20, 40),
-    ["corn"] = math.random(20, 40),
-    ["green-island"] = math.random(20, 40),
-    ["dusche-beer"] = math.random(5, 15),
-    ["stronzo-beer"] = math.random(5, 15),
-    ["am-beer"] = math.random(5, 15),
-    ["logger-beer"] = math.random(5, 15),
-    ["sunny-cocktail"] = math.random(5, 15),
-    ["sake"] = math.random(20, 40),
-    ["b52"] = math.random(20, 40),
-    ["brussian"] = math.random(20, 40),
-    ["bkamikaze"] = math.random(20, 40),
-    ["cappucc"] = math.random(20, 40),
-    ["ccookie"] = math.random(20, 40),
-    ["iflag"] = math.random(20, 40),
-    ["kamikaze"] = math.random(20, 40),
-    ["sbullet"] = math.random(20, 40),
-    ["voodoo"] = math.random(20, 40),
-    ["woowoo"] = math.random(20, 40),
-    ["cranberry"] = math.random(20, 40),
-    ["schnapps"] = math.random(20, 40),
-    ["gin"] = math.random(20, 40),
-    ["scotch"] = math.random(20, 40),
-    ["rum"] = math.random(20, 40),
-    ["icream"] = math.random(20, 40),
-    ["amaretto"] = math.random(20, 40),
-    ["curaco"] = math.random(20, 40),
-    ["beerglass"] = math.random(20, 40),
+Config.Binoculars = {
+    zoomSpeed = 10.0,        -- camera zoom speed
+    storeBinocularsKey = 177 -- backspace by default
 }
 
-ConsumablesFireworks = {
-    "firework1",
-    "firework2",
-    "firework3",
-    "firework4"
+Config.AIResponse = {
+    wantedLevels = false, -- if true, you will recieve wanted levels
+    dispatchServices = {  -- AI dispatch services
+        [1] = false,      -- Police Vehicles
+        [2] = false,      -- Police Helicopters
+        [3] = false,      -- Fire Department Vehicles
+        [4] = false,      -- Swat Vehicles
+        [5] = false,      -- Ambulance Vehicles
+        [6] = false,      -- Police Motorcycles
+        [7] = false,      -- Police Backup
+        [8] = false,      -- Police Roadblocks
+        [9] = false,      -- PoliceAutomobileWaitPulledOver
+        [10] = false,     -- PoliceAutomobileWaitCruising
+        [11] = false,     -- Gang Members
+        [12] = false,     -- Swat Helicopters
+        [13] = false,     -- Police Boats
+        [14] = false,     -- Army Vehicles
+        [15] = false      -- Biker Backup
+    }
+}
+
+-- To Set This Up visit https://forum.cfx.re/t/how-to-updated-discord-rich-presence-custom-image/157686
+Config.Discord = {
+    isEnabled = false,                                     -- If set to true, then discord rich presence will be enabled
+    applicationId = '00000000000000000',                   -- The discord application id
+    iconLarge = 'logo_name',                               -- The name of the large icon
+    iconLargeHoverText = 'This is a Large icon with text', -- The hover text of the large icon
+    iconSmall = 'small_logo_name',                         -- The name of the small icon
+    iconSmallHoverText = 'This is a Small icon with text', -- The hover text of the small icon
+    updateRate = 60000,                                    -- How often the player count should be updated
+    showPlayerCount = true,                                -- If set to true the player count will be displayed in the rich presence
+    maxPlayers = 48,                                       -- Maximum amount of players
+    buttons = {
+        {
+            text = 'First Button!',
+            url = 'fivem://connect/localhost:30120'
+        },
+        {
+            text = 'Second Button!',
+            url = 'fivem://connect/localhost:30120'
+        }
+    }
+}
+
+Config.Density = {
+    parked = 0.8,
+    vehicle = 0.8,
+    multiplier = 0.8,
+    peds = 0.8,
+    scenario = 0.8
+}
+
+Config.Disable = {
+    hudComponents = { 1, 2, 3, 4, 7, 9, 13, 14, 19, 20, 21, 22 }, -- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
+    controls = { 37 },                                            -- Controls: https://docs.fivem.net/docs/game-references/controls/
+    displayAmmo = true,                                           -- false disables ammo display
+    ambience = false,                                             -- disables distance sirens, distance car alarms, flight music, etc
+    idleCamera = true,                                            -- disables the idle cinematic camera
+    vestDrawable = false,                                         -- disables the vest equipped when using heavy armor
+    pistolWhipping = true,                                        -- disables pistol whipping
+    driveby = true,                                              -- disables driveby
+}
+
+Config.Consumables = {
+    eat = { -- default food items
+        ['sandwich'] = math.random(35, 54),
+        ['tosti'] = math.random(40, 50),
+        ['twerks_candy'] = math.random(35, 54),
+        ['snikkel_candy'] = math.random(40, 50)
+    },
+    drink = { -- default drink items
+        ['water_bottle'] = math.random(35, 54),
+        ['kurkakola'] = math.random(35, 54),
+        ['coffee'] = math.random(40, 50)
+    },
+    alcohol = { -- default alcohol items
+        ['whiskey'] = math.random(20, 30),
+        ['beer'] = math.random(30, 40),
+        ['vodka'] = math.random(20, 40),
+    },
+    custom = { -- put any custom items here
+        -- ['newitem'] = {
+        --     progress = {
+        --         label = 'Using Item...',
+        --         time = 5000
+        --     },
+        --     animation = {
+        --         animDict = 'amb@prop_human_bbq@male@base',
+        --         anim = 'base',
+        --         flags = 8,
+        --     },
+        --     prop = {
+        --         model = false,
+        --         bone = false,
+        --         coords = false, -- vector 3 format
+        --         rotation = false, -- vector 3 format
+        --     },
+        --     replenish = {'''
+        --         type = 'Hunger', -- replenish type 'Hunger'/'Thirst' / false
+        --         replenish = math.random(20, 40),
+        --         isAlcohol = false, -- if you want it to add alcohol count
+        --         event = false, -- 'eventname' if you want it to trigger an outside event on use useful for drugs
+        --         server = false -- if the event above is a server event
+        --     }
+        -- }
+    }
+}
+
+Config.Fireworks = {
+    delay = 5, -- time in s till it goes off
+    items = {  -- firework items
+        'firework1',
+        'firework2',
+        'firework3',
+        'firework4'
+    }
 }
 
 Config.BlacklistedScenarios = {
-    ['TYPES'] = {
-        --"WORLD_VEHICLE_MILITARY_PLANES_SMALL",
-       -- "WORLD_VEHICLE_MILITARY_PLANES_BIG",
-        "WORLD_VEHICLE_AMBULANCE",
-        "WORLD_VEHICLE_POLICE_NEXT_TO_CAR",
-        "WORLD_VEHICLE_POLICE_CAR",
-        "WORLD_VEHICLE_POLICE_BIKE",
+    types = {
+        'WORLD_VEHICLE_AMBULANCE',
+        'WORLD_VEHICLE_POLICE_NEXT_TO_CAR',
+        'WORLD_VEHICLE_POLICE_CAR',
+        'WORLD_VEHICLE_POLICE_BIKE'
     },
-    ['GROUPS'] = {
+    groups = {
         2017590552,
         2141866469,
         1409640232,
-        `ng_planes`,
+        `ng_planes`
     }
 }
 
 Config.BlacklistedVehs = {
-    [`SHAMAL`] = true,
-    [`LUXOR`] = true,
-    [`LUXOR2`] = true,
-    [`JET`] = true,
-    [`LAZER`] = false,
-    [`BUZZARD`] = true,
-    [`BUZZARD2`] = true,
-    [`ANNIHILATOR`] = true,
-    [`SAVAGE`] = false,
-    [`TITAN`] = true,
-    [`RHINO`] = false,
-    [`FIRETRUK`] = false,
-    [`MULE`] = false,
-    [`MAVERICK`] = true,
-    [`BLIMP`] = false,
-    [`AIRTUG`] = false,
-    [`CAMPER`] = false,
-    [`HYDRA`] = true,
-    [`OPPRESSOR`] = true,
+    [`shamal`] = true,
+    [`luxor`] = true,
+    [`luxor2`] = true,
+    [`jet`] = true,
+    [`lazer`] = true,
+    [`buzzard`] = true,
+    [`buzzard2`] = true,
+    [`annihilator`] = true,
+    [`savage`] = true,
+    [`titan`] = true,
+    [`rhino`] = true,
+    [`firetruck`] = true,
+    [`mule`] = true,
+    [`maverick`] = true,
+    [`blimp`] = true,
+    [`airtug`] = true,
+    [`camper`] = true,
+    [`hydra`] = true,
+    [`oppressor`] = true,
     [`technical3`] = true,
     [`insurgent3`] = true,
     [`apc`] = true,
@@ -208,6 +206,12 @@ Config.BlacklistedVehs = {
     [`rrocket`] = false,
     [`ruiner2`] = true,
     [`deluxo`] = true,
+    [`cargoplane2`] = true,
+    [`voltic2`] = true
+}
+
+Config.BlacklistedWeapons = {
+    [`WEAPON_RAILGUN`] = true,
 }
 
 Config.BlacklistedPeds = {
@@ -216,116 +220,55 @@ Config.BlacklistedPeds = {
     [`s_m_y_cop_01`] = true,
     [`s_f_y_sheriff_01`] = true,
     [`s_f_y_cop_01`] = true,
-    [`s_m_y_hwaycop_01`] = true,
-    [`a_c_mtlion`] = true,
+    [`s_m_y_hwaycop_01`] = true
 }
 
+Config.WeapDraw = {
+    variants = { 130, 122, 3, 6, 8 },
+    weapons = {
+        --'WEAPON_STUNGUN',
+        'WEAPON_PISTOL',
+        'WEAPON_PISTOL_MK2',
+        'WEAPON_COMBATPISTOL',
+        'WEAPON_APPISTOL',
+        'WEAPON_PISTOL50',
+        'WEAPON_REVOLVER',
+        'WEAPON_SNSPISTOL',
+        'WEAPON_HEAVYPISTOL',
+        'WEAPON_VINTAGEPISTOL'
+    }
+}
+
+Config.Objects = { -- for object removal
+    { coords = vector3(266.09, -349.35, 44.74), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02b' },
+    { coords = vector3(285.28, -355.78, 45.13), heading = 0, length = 200, width = 200, model = 'prop_sec_barier_02a' },
+}
+
+-- You may add more than 2 selections and it will bring up a menu for the player to select which floor be sure to label each section though
 Config.Teleports = {
-    --Elevator @ labs
-    [1] = {
-        [1] = {
-            coords = vector4(3540.74, 3675.59, 20.99, 167.5),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
-        },
-        [2] = {
-            coords = vector4(3540.74, 3675.59, 28.11, 172.5),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
-        },
+    [1] = {                   -- Elevator @ labs
+        [1] = {               -- up
+            poly = { coords = vector3(3540.74, 3675.59, 20.99), heading = 167.5, length = 2, width = 2 },
+            allowVeh = false, -- whether or not to allow use in vehicle
+            label = false     -- set this to a string for a custom label or leave it false to keep the default. if more than 2 options, label all options
 
-    },
-    --Rooftop Apartment
-    [3] = {
-        [1] = {
-            coords = vector4(-773.74, 305.59, 85.7, 180.19),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
         },
-        [2] = {
-            coords = vector4(-768.68, 336.78, 243.38, 90.0),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
-        },
-    },
-    --Werkstatt
-    [4] = {
-        [1] = {
-            coords = vector4(-1362.02, -472.02, 31.6, 100.0),
-            ["AllowVehicle"] = true,
-            drawText = '[E] Take Elevator Up'
-        },
-        [2] = {
-            coords = vector4(-1388.64, -481.65, 78.2, 9.43),
-            ["AllowVehicle"] = true,
-            drawText = '[E] Take Elevator Down'
-        },
-    },
-    --Rooftop Villa
-    [5] = {
-        [1] = {
-            coords = vector4(-305.02, -720.97, 28.03, 159.98),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
-        },
-        [2] = {
-            coords = vector4(-288.16, -722.55, 125.47, 247.6),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
-        },
-    },
-    --Medics Garage 1
-    [6] = {
-        [1] = {
-            coords = vector4(342.26, -585.53, 28.8, 73.93),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
-        },
-        [2] = {
-            coords = vector4(332.37, -595.65, 43.28, 70.15),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
-        },
-    },
-    --Medics Garage 2
-    [7] = {
-        [1] = {
-            coords = vector4(343.61, -581.75, 28.8, 65.7),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Up'
-        },
-        [2] = {
-            coords = vector4(330.41, -601.1, 43.28, 71.57),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Take Elevator Down'
-        },
-    },
-    --Ocean
-    [8] = {
-        [1] = {
-            coords = vector4(-1872.53, -307.16, 53.78, 134.44),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Zu Etage 2'
-        },
-        [2] = {
-            coords = vector4(-1872.54, -307.33, 58.16, 136.44),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Zu EG'
-        },
-    },
-    [9] = {
-        [1] = {
-            coords = vector4(-1870.04, -309.34, 58.16, 139.37),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Zu Etage 8'
-        },
-        [2] = {
-            coords = vector4(-1877.31, -315.57, 84.04, 318.59),
-            ["AllowVehicle"] = false,
-            drawText = '[E] Zu Etage 2'
-        },
+        [2] = { -- down
+            poly = { coords = vector3(3540.74, 3675.59, 28.11), heading = 172.5, length = 2, width = 2 },
+            allowVeh = false,
+            label = false
+        }
     },
 }
 
-Config.CarWash = { -- carwash
+Config.CarWash = {
+    dirtLevel = 0.1,                                                                                   -- threshold for the dirt level to be counted as dirty
+    defaultPrice = 20,                                                                                 -- default price for the carwash
+    locations = {
+        [1] = { coords = vector3(174.81, -1736.77, 28.87), length = 7.0, width = 8.8, heading = 359 }, -- South Los Santos Carson Avenue
+        [2] = { coords = vector3(25.2, -1391.98, 28.91), length = 6.6, width = 8.2, heading = 0 },     -- South Los Santos Innocence Boulevard
+        [3] = { coords = vector3(-74.27, 6427.72, 31.02), length = 9.4, width = 8, heading = 315 },    -- Paleto Bay Boulevard
+        [4] = { coords = vector3(1362.69, 3591.81, 34.5), length = 6.4, width = 8, heading = 21 },     -- Sandy Shores
+        [5] = { coords = vector3(-699.84, -932.68, 18.59), length = 11.8, width = 5.2, heading = 0 }   -- Little Seoul Gas Station
+    }
 }

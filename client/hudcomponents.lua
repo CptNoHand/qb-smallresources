@@ -1,9 +1,22 @@
-local disableHudComponents = {1, 2, 3, 4, 7, 9, 13, 14, 19, 20, 21, 22}
-local disableControls = {37}
-local displayAmmo = true
+local disableHudComponents = Config.Disable.hudComponents
+local disableControls = Config.Disable.controls
+local displayAmmo = Config.Disable.displayAmmo
 
--- Hud Components: https://docs.fivem.net/natives/?_0x6806C51AD12B83B8
--- Controls: https://docs.fivem.net/docs/game-references/controls/
+local function decorSet(Type, Value)
+    if Type == 'parked' then
+        Config.Density.parked = Value
+    elseif Type == 'vehicle' then
+        Config.Density.vehicle = Value
+    elseif Type == 'multiplier' then
+        Config.Density.multiplier = Value
+    elseif Type == 'peds' then
+        Config.Density.peds = Value
+    elseif Type == 'scenario' then
+        Config.Density.scenario = Value
+    end
+end
+
+exports('DecorSet', decorSet)
 
 CreateThread(function()
     while true do
@@ -11,25 +24,34 @@ CreateThread(function()
 			HideHudComponentThisFrame(disableHudComponents[i])
 		end
 
-		for i = 1, #disableControls do
-			DisableControlAction(2, disableControls[i], true)
-		end
+        for i = 1, #disableHudComponents do
+            HideHudComponentThisFrame(disableHudComponents[i])
+        end
 
-		DisplayAmmoThisFrame(displayAmmo)
+        for i = 1, #disableControls do
+            DisableControlAction(2, disableControls[i], true)
+        end
 
-		Wait(0)
+        DisplayAmmoThisFrame(displayAmmo)
+
+        SetParkedVehicleDensityMultiplierThisFrame(Config.Density.parked)
+        SetVehicleDensityMultiplierThisFrame(Config.Density.vehicle)
+        SetRandomVehicleDensityMultiplierThisFrame(Config.Density.multiplier)
+        SetPedDensityMultiplierThisFrame(Config.Density.peds)
+        SetScenarioPedDensityMultiplierThisFrame(Config.Density.scenario, Config.Density.scenario) -- Walking NPC Density
+        Wait(0)
     end
 end)
 
 exports('addDisableHudComponents', function(hudComponents)
-	local hudComponentsType = type(hudComponents)
-	if hudComponentsType == 'number' then
-		disableHudComponents[#disableHudComponents+1] = hudComponents
-	elseif hudComponentsType == 'table' and table.type(hudComponents) == "array" then
-		for i = 1, #hudComponents do
-			disableHudComponents[#disableHudComponents+1] = hudComponents[i]
-		end
-	end
+    local hudComponentsType = type(hudComponents)
+    if hudComponentsType == 'number' then
+        disableHudComponents[#disableHudComponents + 1] = hudComponents
+    elseif hudComponentsType == 'table' and table.type(hudComponents) == "array" then
+        for i = 1, #hudComponents do
+            disableHudComponents[#disableHudComponents + 1] = hudComponents[i]
+        end
+    end
 end)
 
 exports('removeDisableHudComponents', function(hudComponents)
@@ -55,14 +77,14 @@ end)
 exports('getDisableHudComponents', function() return disableHudComponents end)
 
 exports('addDisableControls', function(controls)
-	local controlsType = type(controls)
-	if controlsType == 'number' then
-		disableControls[#disableControls+1] = controls
-	elseif controlsType == 'table' and table.type(controls) == "array" then
-		for i = 1, #controls do
-			disableControls[#disableControls+1] = controls[i]
-		end
-	end
+    local controlsType = type(controls)
+    if controlsType == 'number' then
+        disableControls[#disableControls + 1] = controls
+    elseif controlsType == 'table' and table.type(controls) == "array" then
+        for i = 1, #controls do
+            disableControls[#disableControls + 1] = controls[i]
+        end
+    end
 end)
 
 exports('removeDisableControls', function(controls)
